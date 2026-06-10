@@ -1,0 +1,43 @@
+# Include the following configuration files
+include ~/.config/sway/input.conf
+#include ~/.config/sway/workspaces.conf
+include ~/.config/sway/keybinds.conf
+include ~/.config/sway/status.conf
+
+# --- Startup and services---
+# Set wallpaper
+exec swaybg -o eDP-1 -i ~/Pictures/renaissance-art-collection/michelangelo-creation-of-adam-cropped.jpg -m fill
+
+# Start pipewire services
+exec pipewire &
+
+# Swayidle configuration
+exec swayidle -w \
+	timeout 900 'swaylock -f -i /home/dcn/Pictures/new-analog-collection/image-001.jpg' \
+	timeout 1200 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+	before-sleep 'swaylock -f -i /home/dcn/Pictures/new-analog-collection/image-001.jpg' \
+	event switch:on 'swaylock -f -i /home/dcn/Pictures/new-analog-collection/image-001.jpg'
+
+# --- Appearance ---
+# Set gap widths
+#gaps inner 10
+#gaps outer 10
+
+# Set border style and width
+default_border normal 2
+default_floating_border normal
+hide_edge_borders smart_no_gaps
+hide_edge_borders vertical
+titlebar_padding 4 2
+# Set titlebar font
+font pango:Tamzen 16px
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #1494f3 #016fc2 #ffffff #2e9ef4   #222222
+client.focused_inactive #ffffff #c3c3c3 #070707 #222222   #222222
+client.unfocused        #929294 #505050 #c3c3c3 #222222   #222222
+client.urgent           #2f343a #900000 #ffffff #222222   #222222
+client.placeholder      #000000 #0c0c0c #ffffff #222222   #222222
+
+# --- Rules ---
+for_window [app_id="Firefox" title="Picture-in-Picture"] floating enable

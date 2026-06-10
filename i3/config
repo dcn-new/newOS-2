@@ -1,0 +1,36 @@
+# Include the following configuration files
+include ~/.config/i3/input.conf
+#include ~/.config/sway/workspaces.conf
+include ~/.config/i3/keybinds.conf
+include ~/.config/i3/status.conf
+
+# --- Startup and services---
+# Set wallpaper
+exec --no-startup-id feh --bg-fill ~/Pictures/renaissance-art-collection/michelangelo-creation-of-adam-cropped.jpg
+
+# Start pipewire services
+exec --no-startup-id pipewire &
+
+# --- Appearance ---
+# Set gap widths
+#gaps inner 10
+#gaps outer 10
+
+# Set border style and width
+default_border normal 2
+default_floating_border normal
+hide_edge_borders smart_no_gaps
+hide_edge_borders vertical
+
+# Set titlebar font
+font pango:Tamzen 16px
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #1494f3 #016fc2 #ffffff #2e9ef4   #222222
+client.focused_inactive #ffffff #c3c3c3 #070707 #222222   #222222
+client.unfocused        #929294 #505050 #c3c3c3 #222222   #222222
+client.urgent           #2f343a #900000 #ffffff #222222   #222222
+client.placeholder      #000000 #0c0c0c #ffffff #222222   #222222
+
+# --- Rules ---
+for_window [app_id="Firefox" title="Picture-in-Picture"] floating enable
