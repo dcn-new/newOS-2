@@ -6,8 +6,7 @@ include ~/.config/i3/status.conf
 
 # --- Startup and services---
 # Set wallpaper
-exec --no-startup-id feh --bg-fill ~/Pictures/renaissance-art-collection/michelangelo-creation-of-adam-cropped.jpg
-
+exec --no-startup-id feh --bg-fill ~/Pictures/renaissance-art-collection/the-barque-of-dante-dante-and-virgil-in-the-underworld.jpg
 # Start pipewire services
 exec --no-startup-id pipewire &
 
