@@ -24,8 +24,10 @@ sudo cp -r ~/build/newOS-2/Pictures ~/
 
 # Move dotfiles into place
 sudo mkdir -p ~/.config
-sudo cp ~/build/newOS-2/alacritty ~/.config/
-sudo cp ~/build/newOS-2/i3 ~/.config/
+sudo cp -r ~/build/newOS-2/alacritty ~/.config/
+sudo cp -r ~/build/newOS-2/foot ~/.config
+sudo cp -r ~/build/newOS-2/i3 ~/.config/
+sudo cp -r ~/build/newOS-2/i3status ~/.config
 
 # Copy fonts
 sudo mkdir -p ~/.local/share
