@@ -1,0 +1,58 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+general {
+        colors = true
+        interval = 5
+        color_good = "#50fa7b"
+        color_degraded = "#f1fa8c"
+        color_bad = "#ff5555"
+}
+
+# The active display order on your bar
+order += "disk /"
+order += "wireless _first_"
+order += "cpu_usage"
+order += "memory"
+order += "battery all"
+order += "tztime local"
+
+# Storage display
+disk "/" {
+        format = "DISK: %avail"
+}
+
+# Wireless status
+wireless _first_ {
+        format_up = "WIFI: (%quality at %essid) %ip"
+        format_down = "WIFI: DOWN"
+}
+
+# CPU usage showing actual percentage used
+cpu_usage {
+        format = "CPU: %usage"
+}
+
+# Memory showing Gigabytes Used out of Total Available
+memory {
+        format = "MEM: %used / %available"
+        threshold_degraded = "1G"
+        format_degraded = "MEM LOW: %available"
+}
+
+# ThinkPad Dual Battery Setup (Strict Text Only)
+battery all {
+        format = "BAT: %status %percentage %remaining"
+        last_full_capacity = true
+        format_down = "BAT: NONE"
+        status_chr = "CHR"
+        status_bat = "DIS"
+        status_unk = "UNK"
+        status_full = "FULL"
+        path = "/sys/class/power_supply/BAT%d/uevent"
+}
+
+# Clean, readable Date and Time
+tztime local {
+        format = "%Y-%m-%d %H:%M:%S"
+}
