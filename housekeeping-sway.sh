@@ -4,6 +4,9 @@
 sudo ln -s /etc/sv/seatd /var/service
 sudo usermod -aG _seat dcn
 
+# Set up pam_rundir
+sudo echo "-session     optional    pam_rundir.so" >> /etc/pam.d/login
+
 # Connect to network
 sudo nmtui
 
