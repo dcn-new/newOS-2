@@ -23,7 +23,7 @@ hide_edge_borders smart_no_gaps
 hide_edge_borders vertical
 
 # Set titlebar font
-font pango:Tamzen 16px
+font pango:Terminus 16px
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #1494f3 #016fc2 #ffffff #2e9ef4   #222222
