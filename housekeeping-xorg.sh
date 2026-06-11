@@ -1,16 +1,5 @@
 #!/bin/sh
 
-# get rid!!
-sudo rm /etc/resolv.conf
-
-# Sym-link services
-sudo ln -s /etc/sv/NetworkManager /var/service
-sudo ln -s /etc/sv/dbus /var/service
-sudo ln -s /etc/sv/acpid /var/service
-
-# Connect to network
-sudo nmtui
-
 # Remove current bash and X-files
 sudo rm ~/.bashrc ~/.bash_profile
 sudo rm ~/.Xresources
