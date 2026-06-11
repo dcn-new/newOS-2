@@ -11,13 +11,15 @@ sudo ln -s /etc/sv/acpid /var/service
 # Connect to network
 sudo nmtui
 
-# Remove current X-files
+# Remove current bash and X-files
 sudo rm ~/.bashrc ~/.bash_profile
+sudo rm ~/.Xresources
 
-# Copy new X-files into place
+# Copy new bash and X-files into place
 sudo cp ~/build/newOS-2/.bashrc ~/
 sudo cp ~/build/newOS-2/.bash_profile ~/
 sudo cp ~/build/newOS-2/.xinitrc ~/
+sudo cp ~/build/newOS-2/.Xresources ~/
 
 # Move pictures folder (wallpapers)
 sudo cp -r ~/build/newOS-2/Pictures ~/
