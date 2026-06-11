@@ -38,7 +38,7 @@ EOF
     # 5. Install Your Full Sway Stack & Core Packagesss
     echo "=== Installing Sway and Desktop Packages ==="
     sudo xbps-install -Sy sway swaylock swayidle swaybg foot firefox-esr wmenu \
-	    pipewire wireplumber xorg-server-xwayland brightnessctl
+	    pipewire wireplumber xorg-server-xwayland brightnessctl i3status pam_rundir vlc
     
     echo "=== Installing Utilities ==="
     sudo xbps-install -Sy fzf git grim slurp htop fastfetch unzip tree
