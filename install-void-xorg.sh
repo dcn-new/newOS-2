@@ -38,8 +38,8 @@ EOF
     # 5. Install Your Full Xorg Stack & Core Packages
     echo "=== Installing X-org, i3 and Desktop Packages ==="
     
-    sudo mkdir -p /etc/xbps.d
-    printf "repository=https://github.com/xlibre-void/xlibre/releases/latest/download/\n" | sudo tee /etc/xbps.d/99-repository-xlibre.conf
+    #sudo mkdir -p /etc/xbps.d
+    #printf "repository=https://github.com/xlibre-void/xlibre/releases/latest/download/\n" | sudo tee /etc/xbps.d/99-repository-xlibre.conf
 
     sudo xbps-install -Syu xorg-server xorg-server-common xauth xinit xrandr xrdb i3 i3status xterm firefox-esr alacritty dmenu \
 	    pipewire wireplumber brightnessctl picom
@@ -58,9 +58,9 @@ EOF
     sudo xbps-install -Sy font-tamzen font-ibm-plex-ttf terminus-font termsyn-font
 
     # 6. Enable System Services Pre-Boot
-    sudo ln -s /etc/sv/dbus /var/service
-    sudo ln -s /etc/sv/NetworkManager /var/service
-    sudo ln -s /etc/sv/acpid /var/service
+    #sudo ln -s /etc/sv/dbus /var/service
+    #sudo ln -s /etc/sv/NetworkManager /var/service
+    #sudo ln -s /etc/sv/acpid /var/service
 
     # 7. Finalize Kernel Initramfs & Bootloader
     sudo xbps-reconfigure -fa
