@@ -46,17 +46,13 @@ EOF
     echo "=== Installing Driver Repositories ==="
     sudo xbps-install -Sy void-repo-nonfree void-repo-multilib void-repo-multilib-nonfree
     
-    echo "=== Installing Graphics Stack and Drivers ==="
+	echo "=== Installing Graphics Stack and Drivers ==="
     sudo xbps-install -Sy ffmpeg intel-ucode libva-intel-driver libva-utils mesa-demos mesa-dri \
 	    mesa-vulkan-intel
 
+	# 6. Install Fonts
     echo "=== Installing Fonts ==="
     sudo xbps-install -Sy font-tamzen font-ibm-plex-ttf terminus-font termsyn-font
-
-    # 6. Enable System Services Pre-Boot
-    sudo ln -s /etc/sv/dbus /var/service
-    sudo ln -s /etc/sv/NetworkManager /var/service
-    sudo ln -s /etc/sv/acpid /var/service
 
     # 7. Finalize Kernel Initramfs & Bootloader
     sudo xbps-reconfigure -fa
