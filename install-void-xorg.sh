@@ -35,34 +35,32 @@ blacklist nvidia_modeset
 blacklist nvidia_uvm
 EOF
 
-    # 5. Install Your Full Sway Stack & Core Packagesss
-    echo "=== Installing X-libre, i3 and Desktop Packages ==="
+    # 5. Install Your Full Xorg Stack & Core Packages
+    echo "=== Installing X-org, i3 and Desktop Packages ==="
     
     sudo mkdir -p /etc/xbps.d
     printf "repository=https://github.com/xlibre-void/xlibre/releases/latest/download/\n" | sudo tee /etc/xbps.d/99-repository-xlibre.conf
 
-    sudo xbps-install -Syu xlibre-xserver xlibre-xserver-common xlibre-xf86-input-libinput xauth xinit i3 i3status firefox-esr alacritty dmenu \
-	    pipewire wireplumber brightnessctl
+    sudo xbps-install -Syu xorg-server xorg-server-common xauth xinit xrandr xrdb i3 i3status xterm firefox-esr alacritty dmenu \
+	    pipewire wireplumber brightnessctl picom
     
     echo "=== Installing Utilities ==="
-    sudo xbps-install -Sy fzf git htop fastfetch unzip tree
+    sudo xbps-install -Sy fzf git htop scrot fastfetch unzip tree
     
     echo "=== Installing Driver Repositories ==="
     sudo xbps-install -Sy void-repo-nonfree void-repo-multilib void-repo-multilib-nonfree
     
-    echo "=== Installing Sway and Desktop Packages ==="
+    echo "=== Installing Graphic and Drivers Stack ==="
     sudo xbps-install -Sy ffmpeg intel-ucode libva-intel-driver libva-utils mesa-demos mesa-dri \
 	    mesa-vulkan-intel
 
-    echo "=== Installing Sway and Desktop Packages ==="
+    echo "=== Installing Fonts ==="
     sudo xbps-install -Sy font-tamzen font-ibm-plex-ttf terminus-font termsyn-font
 
     # 6. Enable System Services Pre-Boot
     sudo ln -s /etc/sv/dbus /var/service
     sudo ln -s /etc/sv/NetworkManager /var/service
     sudo ln -s /etc/sv/acpid /var/service
-
-    sudo usermod -aG _seatd dcn
 
     # 7. Finalize Kernel Initramfs & Bootloader
     sudo xbps-reconfigure -fa
