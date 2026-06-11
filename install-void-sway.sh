@@ -58,8 +58,6 @@ EOF
     sudo ln -s /etc/sv/NetworkManager /var/service
     sudo ln -s /etc/sv/acpid /var/service
 
-    sudo usermod -aG _seatd dcn
-
     # 7. Finalize Kernel Initramfs & Bootloader
     sudo xbps-reconfigure -fa
     grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=void
