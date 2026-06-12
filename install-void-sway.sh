@@ -48,7 +48,7 @@ EOF
     
 	echo "=== Installing Graphics Stack and Drivers ==="
     sudo xbps-install -Sy ffmpeg intel-ucode libva-intel-driver libva-utils mesa-demos mesa-dri \
-	    mesa-vulkan-intel
+	    mesa-vulkan-intel xdg-desktop-portal-wlr xdg-desktop-portal
 
 	# 6. Install Fonts
     echo "=== Installing Fonts ==="
