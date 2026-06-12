@@ -2,7 +2,7 @@
 
 # Sym-link services
 sudo ln -s /etc/sv/dbus /var/service
-sudo ln -s /etc/sv/NetworkManager /var/service
+
 sudo ln -s /etc/sv/acpid /var/service
 sudo ln -s /etc/sv/seatd /var/service
 sudo usermod -aG _seat dcn
