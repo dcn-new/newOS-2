@@ -9,9 +9,9 @@ if [ -z "$XDG_RUNTIME_DIR" ]; then
 fi
 
 # Declare a pure wayland session
-#export XDG_SESSION_TYPE="wayland"
-#export GDK_BACKEND="wayland"
-#export QT_QPA_PLATFORM="wayland;xcb"
+export XDG_SESSION_TYPE="wayland"
+export GDK_BACKEND="wayland"
+export QT_QPA_PLATFORM="wayland"
 
 # aliases (for loggging in)
 alias start="exec dbus-run-session sway"
