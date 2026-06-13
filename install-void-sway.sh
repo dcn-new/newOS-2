@@ -90,7 +90,6 @@ echo "Creating Btrfs subvolumes..."
 mount /dev/sda3 /mnt
 btrfs subvolume create /mnt/@
 btrfs subvolume create /mnt/@home
-btrfs subvolume create /mnt/@snapshots
 umount /mnt
 
 # 3. Mount Everything Correctly for Installation
@@ -98,9 +97,7 @@ echo "Mounting target file systems..."
 mount -o noatime,compress=zstd,subvol=@ /dev/sda3 /mnt
 mkdir -p /mnt/home 
 mkdir -p /mnt/boot/efi
-mkdir -p /mnt/.snapshots
 mount -o noatime,compress=zstd,subvol=@home /dev/sda3 /mnt/home
-mount -o noatime,compress=zstd,subvol=@snapshots /dev/sda3 /mnt/.snapshots
 mount /dev/sda1 /mnt/boot/efi
 
 # 4. Bootstrap the Base Void Linux System
